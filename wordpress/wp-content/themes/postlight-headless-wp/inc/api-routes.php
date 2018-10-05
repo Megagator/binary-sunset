@@ -25,7 +25,7 @@ add_action(
         );
 
         // Register routes
-        register_rest_route( 'postlight/v1', '/post', [
+        register_rest_route( 'postlight/v1', '/review', [
             'methods'  => 'GET',
             'callback' => 'rest_get_post',
             'args' => [

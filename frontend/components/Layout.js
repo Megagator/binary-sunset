@@ -1,17 +1,14 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-const layoutStyle = {
-    margin: 20,
-    padding: 20
-};
+const Fragment = React.Fragment;
 
 const Layout = props => (
-    <div style={layoutStyle}>
-        <Header />
-        {props.children}
-        <Footer />
-    </div>
+	<Fragment>
+		<Header />
+		{props.children}
+		<Footer />
+	</Fragment>
 );
 
 export default Layout;

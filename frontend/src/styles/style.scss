@@ -1,11 +1,50 @@
 @import 'theme-colors';
-$theme-font: 100% verdana, sans-serif;
+$font: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
 
-body {
-  font: $theme-font;
-  background-color: $themeColor-Light;
+html {
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2 {
-  color: $themeColor-Dark
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: $font;
+  color: $dark;
+  background-color: white;
+  background-image: url(../../static/images/binary_sunset.jpg);
+  background-color:#333;
+  background-repeat:none;
+  background-size:cover;
+  background-position:94% center;
+  min-height: 100vh;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: wavy;
+  }
+}
+
+p {
+  font-size: 1.3125rem;
+  line-height: 1.58;
+}
+
+.container {
+  max-width: 43.25rem;
+  margin: 4rem auto 0;
+  background-color: $light-transparent;
+  padding: 4.25rem 4.25rem 2rem;
+}
+
+footer {
+  margin-top: 3rem;
+  p {
+    font-size: 0.875rem;
+  }
 }

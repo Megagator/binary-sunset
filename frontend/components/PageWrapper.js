@@ -16,7 +16,11 @@ const PageWrapper = Comp => (
 
     render() {
       return (
-        <Comp {...this.props} />
+        <div className="page-wrapper container">
+          <main>
+            <Comp {...this.props} />
+          </main>
+        </div>
       )
     }
   }

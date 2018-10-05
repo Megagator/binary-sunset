@@ -6,7 +6,7 @@ import PageWrapper from "../components/PageWrapper.js";
 import Menu from "../components/Menu.js";
 import { Config } from "../config.js";
 
-class Post extends Component {
+class Review extends Component {
     static async getInitialProps(context) {
         const { slug, apiRoute } = context.query;
         const res = await fetch(
@@ -33,4 +33,4 @@ class Post extends Component {
     }
 }
 
-export default PageWrapper(Post);
+export default PageWrapper(Review);

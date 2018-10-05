@@ -1,31 +1,27 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { Config } from "../config.js";
 
-const linkStyle = {
-    marginRight: 15
-};
+const Fragment = React.Fragment;
 
 class Menu extends Component {
-  constructor() {
-      super();
-  }
+	constructor() {
+		super();
+	}
 
-  getSlug(url) {
-      const parts = url.split("/");
-      return parts.length > 2 ? parts[parts.length - 2] : "";
-  }
+	getSlug(url) {
+		const parts = url.split("/");
+		return parts.length > 2 ? parts[parts.length - 2] : "";
+	}
 
-  render() {
-    return(
-      <div>
-          <Link href="/">
-              <a style={linkStyle}>Home</a>
-          </Link>
-      </div>
-    )
-  }
-
+	render() {
+		return (
+			<Fragment>
+				<Link href="/">
+					<a>Home</a>
+				</Link>
+			</Fragment>
+		)
+	}
 
 }
 

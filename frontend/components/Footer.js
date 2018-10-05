@@ -1,13 +1,11 @@
 import Link from "next/link";
 
-const hrStyle = {
-    marginTop: 75
-};
+const d = new Date();
 
 const Footer = () => (
-    <div>
-        <hr style={hrStyle} />
-    </div>
+    <footer>
+        <p>Copyright &copy; {d.getFullYear()} -- All Rights Reserved</p>
+    </footer>
 );
 
 export default Footer;
