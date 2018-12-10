@@ -15,11 +15,13 @@ class Menu extends Component {
 
 	render() {
 		return (
-			<Fragment>
-				<Link href="/">
-					<a>Home</a>
-				</Link>
-			</Fragment>
+			<header className="site-header">
+				<nav className="container">
+					<Link href="/">
+						<a>Home</a>
+					</Link>
+				</nav>
+			</header>
 		)
 	}
 

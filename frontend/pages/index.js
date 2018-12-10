@@ -1,40 +1,47 @@
-import Layout from "../components/Layout.js";
 import React, { Component } from "react";
 import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import PageWrapper from "../components/PageWrapper.js";
-import Menu from "../components/Menu.js";
+import PubDate from "../components/PubDate";
+
 import { Config } from "../config.js";
+
 
 class Index extends Component {
 	static async getInitialProps(context) {
 		const reviewsRes = await fetch(
 			`${Config.apiUrl}/wp-json/wp/v2/posts?_embed`
-		);
-		const reviews = await reviewsRes.json();
-		return { reviews };
-	}
+			);
+			const reviews = await reviewsRes.json();
+			return { reviews };
+		}
 
 	render() {
+		const Fragment = React.Fragment;
 		const reviews = this.props.reviews.map((post, index) => {
+			console.log(post)
 			return (
-				<ul key={index}>
-					<li>
-						<Link
-							as={`/review/${post.slug}`}
-							href={`/review?slug=${post.slug}&apiRoute=review`}
+				<div key={index}>
+					<Link
+						as={`/review/${post.slug}`}
+						href={`/review?slug=${post.slug}&apiRoute=review`}
 						>
-							<a>{post.title.rendered}</a>
-						</Link>
-					</li>
-				</ul>
+						<a>{post.title.rendered}</a>
+					</Link>
+					<p
+						dangerouslySetInnerHTML={{
+							__html: post.excerpt.rendered
+						}}
+					/>
+					<PubDate published={post.date} modified={post.modified} />
+				</div>
 			);
 		});
+
 		return (
-			<Layout>
-				<Menu menu={this.props.headerMenu} />
+			<section className="container main-block post-loop">
 				{reviews}
-			</Layout>
+			</section>
 		);
 	}
 }

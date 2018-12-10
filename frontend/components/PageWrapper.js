@@ -1,5 +1,7 @@
 import React from "react";
+import Menu from "../components/Menu.js";
 import { Config } from "../config.js";
+import Layout from "./Layout.js";
 
 const PageWrapper = Comp => (
   class extends React.Component {
@@ -16,11 +18,12 @@ const PageWrapper = Comp => (
 
     render() {
       return (
-        <div className="page-wrapper container">
-          <main>
+        <Layout>
+          <Menu menu={this.props.headerMenu} />
+          <main className="page-wrapper">
             <Comp {...this.props} />
           </main>
-        </div>
+        </Layout>
       )
     }
   }

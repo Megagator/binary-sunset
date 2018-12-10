@@ -1,5 +1,9 @@
-@import 'theme-colors';
-$font: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
+@import 'variables';
+@import 'functions';
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   margin: 0;
@@ -14,12 +18,18 @@ body {
   color: $dark;
   background-color: white;
   background-image: url(../../static/images/binary_sunset.jpg);
+  background-attachment: fixed;
   background-color:#333;
   background-repeat:none;
   background-size:cover;
   background-position:94% center;
   min-height: 100vh;
 }
+
+h1 {
+  @include fluid-type(20rem, 87.5rem, 1.75rem, 3.5rem);
+}
+
 
 a {
   color: $blue;
@@ -36,15 +46,102 @@ p {
 }
 
 .container {
-  max-width: 43.25rem;
+  max-width: 53.25rem;
+  margin: 0 auto;
+}
+
+.main-block {
   margin: 4rem auto 0;
-  background-color: $light-transparent;
-  padding: 4.25rem 4.25rem 2rem;
+  padding: 2rem 4.25rem 2rem;
+  background-color: $light;
+}
+
+article {
+  padding-top: 4.25rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.site-header {
+  background-color: $light;
+  padding: 1rem 0;
+  margin-bottom: 4rem;
 }
 
 footer {
   margin-top: 3rem;
   p {
     font-size: 0.875rem;
+  }
+}
+
+.backdrop-wrapper {
+  margin: -4.25rem -4.25rem 3.25rem;
+
+}
+
+.backdrop {
+  height: 0;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%; // 16/9
+
+  &::after {
+    content: '';
+    position: absolute;
+    top:0;left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, 0.5);
+  }
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 2.125rem;
+    color: white;
+    z-index: 10;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+}
+
+.poster {
+  max-width: 180px;
+  float: right;
+  margin: -9rem -2.125rem 1rem 1rem;
+  position: relative;
+  z-index: 10;
+  // transform: translate(50%, -50%);
+
+  img {
+    min-width: 180px;
+    min-height: 270px;
+  }
+}
+
+.byline {
+  color: #777;
+  font-size: 1rem;
+}
+address {
+  display: inline;
+  font-weight: bold;
+  font-style: normal;
+
+  &::after {
+    content: ' on ';
+    font-weight: normal;
+  }
+}
+
+
+.post-loop {
+  a {
+    display: block;
   }
 }

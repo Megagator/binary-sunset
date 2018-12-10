@@ -1,9 +1,12 @@
-import Layout from "../components/Layout.js";
-import React, { Component } from "react";
 import fetch from "isomorphic-unfetch";
 import Error from "next/error";
-import PageWrapper from "../components/PageWrapper.js";
-import Menu from "../components/Menu.js";
+import React, { Component } from "react";
+
+import MovieBackdrop from "../components/MovieBackdrop";
+import MoviePoster   from "../components/MoviePoster";
+import PubDate       from "../components/PubDate";
+import PageWrapper   from "../components/PageWrapper";
+
 import { Config } from "../config.js";
 
 class Review extends Component {
@@ -18,17 +21,26 @@ class Review extends Component {
 
     render() {
         if (!this.props.post.title) return <Error statusCode={404} />;
+        // console.log(this.props);
 
         return (
-            <Layout>
-                <Menu menu={this.props.headerMenu} />
-                <h1>{this.props.post.title.rendered}</h1>
-                <div
+            <article className="container main-block">
+                <header>
+                    <div className="backdrop-wrapper">
+                        <MovieBackdrop tmdbid={this.props.post.acf.tmdb_id} title={this.props.post.title.rendered}/>
+                    </div>
+                    <MoviePoster tmdbid={this.props.post.acf.tmdb_id} />
+                    <div className="byline">
+                        <address className="author">{this.props.post.author}</address>
+                        <PubDate published={this.props.post.date} modified={this.props.modified} />
+                    </div>
+                </header>
+                <section
                     dangerouslySetInnerHTML={{
                         __html: this.props.post.content.rendered
                     }}
-                />
-            </Layout>
+                    />
+            </article>
         );
     }
 }
