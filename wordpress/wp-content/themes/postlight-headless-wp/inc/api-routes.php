@@ -135,6 +135,9 @@ function rest_get_content( WP_REST_Request $request, $type, $function_name ) {
     $data = $controller->prepare_item_for_response( $post, $request );
     $response = $controller->prepare_response_for_collection( $data );
 
+    $response['author'] = get_the_author_meta('display_name', $response['author']);
+    // log_console('post', var_export($response, true), false);
+
     return new WP_REST_Response( $response );
 }
 
