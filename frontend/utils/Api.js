@@ -33,7 +33,10 @@ class Api {
         response.on('data', (chunk) => body.push(chunk));
     
         // we are done, resolve promise with those joined chunks
-        response.on('end', () => resolve(body.join('')));
+        response.on('end', () => {
+          resolve(body.join(''));
+          // console.log("got from api: ", JSON.parse(body));
+        });
       });
       
       // handle connection errors of the request
