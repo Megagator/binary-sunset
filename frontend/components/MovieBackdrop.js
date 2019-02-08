@@ -21,11 +21,8 @@ class MovieBackdrop extends Component {
 	}
 
 	componentWillMount() {
-		const requestUrl = Api.makeRequestUrl(this.props.tmdbid);
-	
-		Api.get(requestUrl)
+		this.props.apiResult
 			.then( (content) => {
-				// console.log("got from api: ", content, "type: ", typeof content);
 				this.setState({
 					meta: content
 				});
@@ -38,7 +35,11 @@ class MovieBackdrop extends Component {
 	render() {
 		// console.log(typeof this.state.meta);
 		if (this.state.meta == "") {
-			return <div className="backdrop"></div>;
+			return (
+			<div className="backdrop">
+				<h1>{this.props.title}</h1>
+			</div>
+			);
 		}else{
 			const data = JSON.parse(this.state.meta);
 			return (

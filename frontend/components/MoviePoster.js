@@ -21,11 +21,17 @@ class MovieBackdrop extends Component {
 	}
 
 	componentWillMount() {
-		const requestUrl = Api.makeRequestUrl(this.props.tmdbid);
-	
-		Api.get(requestUrl)
+		let apiCall;
+		if (this.props.apiResult != undefined) {
+			apiCall = this.props.apiResult
+		}
+		else {
+			const requestUrl = Api.makeRequestUrl(this.props.tmdb_id);
+			apiCall =  Api.get(requestUrl);
+		}
+
+		apiCall
 			.then( (content) => {
-				console.log("got from api: ", content, "type: ", typeof content);
 				this.setState({
 					meta: content
 				});
@@ -42,7 +48,7 @@ class MovieBackdrop extends Component {
 		}else{
 			const data = JSON.parse(this.state.meta);
 			return (
-				<div className="poster">
+				<div className="poster" onClick={this.props.onClick}>
 					<img
 						src = {Api.makeImageUrl(data.poster_path, this.posterSizes.medium)}
 						srcSet = {`

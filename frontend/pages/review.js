@@ -23,6 +23,9 @@ class Review extends Component {
         if (!this.props.post.title) return <Error statusCode={404} />;
         // console.log(this.props);
 
+        const requestUrl = Api.makeRequestUrl(this.props.post.acf.tmdb_id);
+        const apiRequest = Api.get(requestUrl)
+
         return (
             <article className="container main-block">
                 <header>
