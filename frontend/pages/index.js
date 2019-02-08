@@ -3,9 +3,12 @@ import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import PageWrapper from "../components/PageWrapper.js";
 import PubDate from "../components/PubDate";
+import MoviePoster from "../components/MoviePoster";
 
 import { Config } from "../config.js";
+import Menu from "../components/Menu.js";
 
+const Fragment = React.Fragment;
 
 class Index extends Component {
 	static async getInitialProps(context) {
@@ -17,31 +20,34 @@ class Index extends Component {
 		}
 
 	render() {
-		const Fragment = React.Fragment;
 		const reviews = this.props.reviews.map((post, index) => {
-			console.log(post)
+			// console.log(this.props)
 			return (
-				<div key={index}>
-					<Link
-						as={`/review/${post.slug}`}
-						href={`/review?slug=${post.slug}&apiRoute=review`}
-						>
-						<a>{post.title.rendered}</a>
-					</Link>
-					<p
-						dangerouslySetInnerHTML={{
-							__html: post.excerpt.rendered
-						}}
-					/>
-					<PubDate published={post.date} modified={post.modified} />
-				</div>
+				<Link key={index} 
+					as={`/review/${post.slug}`}
+					href={`/review?slug=${post.slug}&apiRoute=review`}
+					>
+					<article className="review-preview">
+						<MoviePoster tmdb_id={post.acf.tmdb_id} />
+						<h2>{post.title.rendered}</h2>
+						<div className="review"
+							dangerouslySetInnerHTML={{
+								__html: post.excerpt.rendered
+							}}
+						/>
+						<PubDate published={post.date} modified={post.modified} />
+					</article>
+				</Link>
 			);
 		});
 
 		return (
-			<section className="container main-block post-loop">
-				{reviews}
-			</section>
+			<Fragment>
+				<Menu backToHome={false}/>
+				<section className="container main-block post-loop">
+					{reviews}
+				</section>
+			</Fragment>
 		);
 	}
 }
