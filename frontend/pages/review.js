@@ -4,10 +4,15 @@ import React, { Component } from "react";
 
 import MovieBackdrop from "../components/MovieBackdrop";
 import MoviePoster   from "../components/MoviePoster";
+import MovieStats    from "../components/MovieStats";
 import PubDate       from "../components/PubDate";
 import PageWrapper   from "../components/PageWrapper";
 
 import { Config } from "../config.js";
+import Api from '../utils/Api';
+import Menu from "../components/Menu";
+const Fragment = React.Fragment;
+
 
 class Review extends Component {
     static async getInitialProps(context) {
@@ -19,6 +24,15 @@ class Review extends Component {
         return { post };
     }
 
+    
+	showStatsCard() {
+		const statsCard = document.querySelector('.stats-card');
+		const statsCardShadow = document.querySelector('.stats-card-shadow');
+
+		statsCard.classList.add('show');
+		statsCardShadow.classList.add('show');
+	}
+
     render() {
         if (!this.props.post.title) return <Error statusCode={404} />;
         // console.log(this.props);
@@ -27,12 +41,15 @@ class Review extends Component {
         const apiRequest = Api.get(requestUrl)
 
         return (
-            <article className="container main-block">
+            <Fragment>
+            <Menu/>
+            <article className="container main-block review-single">
+                <MovieStats apiResult={apiRequest} title={this.props.post.title.rendered}></MovieStats>
                 <header>
                     <div className="backdrop-wrapper">
-                        <MovieBackdrop tmdbid={this.props.post.acf.tmdb_id} title={this.props.post.title.rendered}/>
+                        <MovieBackdrop apiResult={apiRequest} title={this.props.post.title.rendered}/>
                     </div>
-                    <MoviePoster tmdbid={this.props.post.acf.tmdb_id} />
+                    <MoviePoster apiResult={apiRequest} onClick={this.showStatsCard}/>
                     <div className="byline">
                         <address className="author">{this.props.post.author}</address>
                         <PubDate published={this.props.post.date} modified={this.props.modified} />
@@ -44,6 +61,7 @@ class Review extends Component {
                     }}
                     />
             </article>
+            </Fragment>
         );
     }
 }
