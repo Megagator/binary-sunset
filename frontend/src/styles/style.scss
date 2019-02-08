@@ -30,9 +30,12 @@ h1 {
   @include fluid-type(20rem, 87.5rem, 1.75rem, 3.5rem);
 }
 
+h2 {
+  @include fluid-type(20rem, 87.5rem, 1.25rem, 2.5rem);
+}
 
 a {
-  color: $blue;
+  color: $purple;
   text-decoration: none;
 
   &:hover {
@@ -43,17 +46,42 @@ a {
 p {
   font-size: 1.3125rem;
   line-height: 1.58;
+  
+  @media(max-width: 485px) {
+    font-size: 1.25rem;
+    line-height: 1.5;
+
+  }
+}
+
+ol,ul {
+  line-height: 1.6;
+}
+
+ul ul {
+  margin: 0;
+  list-style-type: disc;
+}
+
+hr {
+  border-style: solid;
+  color: darken($light, 10%);
 }
 
 .container {
   max-width: 53.25rem;
   margin: 0 auto;
+  padding: 2rem 4.25rem;
+  
+  @media (max-width: 630px) {
+    padding: 2rem 2.7%;
+  }
 }
 
 .main-block {
   margin: 4rem auto 0;
-  padding: 2rem 4.25rem 2rem;
   background-color: $light;
+  
 }
 
 article {
@@ -64,64 +92,6 @@ img {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.site-header {
-  background-color: $light;
-  padding: 1rem 0;
-  margin-bottom: 4rem;
-}
-
-footer {
-  margin-top: 3rem;
-  p {
-    font-size: 0.875rem;
-  }
-}
-
-.backdrop-wrapper {
-  margin: -4.25rem -4.25rem 3.25rem;
-
-}
-
-.backdrop {
-  height: 0;
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 56.25%; // 16/9
-
-  &::after {
-    content: '';
-    position: absolute;
-    top:0;left:0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(black, 0.5);
-  }
-
-  h1 {
-    position: absolute;
-    top: 50%;
-    left: 2.125rem;
-    color: white;
-    z-index: 10;
-    transform: translateY(-50%);
-    margin: 0;
-  }
-}
-
-.poster {
-  max-width: 180px;
-  float: right;
-  margin: -9rem -2.125rem 1rem 1rem;
-  position: relative;
-  z-index: 10;
-  // transform: translate(50%, -50%);
-
-  img {
-    min-width: 180px;
-    min-height: 270px;
-  }
 }
 
 .byline {
@@ -140,8 +110,14 @@ address {
 }
 
 
-.post-loop {
-  a {
-    display: block;
-  }
-}
+
+
+@import 'header';
+
+@import 'pages/home';
+
+@import 'components/movie-background';
+@import 'components/movie-poster';
+@import 'components/stats-card';
+
+@import 'footer';

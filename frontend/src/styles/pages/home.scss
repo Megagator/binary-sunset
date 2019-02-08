@@ -1,0 +1,57 @@
+.post-loop {
+  a {
+    display: block;
+  }
+
+  article {
+    padding: 0;
+
+    + article {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid darken($light, 10%);
+    }
+  }
+}
+
+
+.review-preview {
+  display: grid;
+  grid-template-columns: minmax(80px, 180px) minmax(280px, 1fr);
+  grid-template-rows: auto auto 2rem;
+  cursor: pointer;
+
+  @media(max-width: 385px) {
+    display: block;
+  }
+
+  &:hover {
+    h2 {
+      color: $purple;
+    }
+  }
+
+  .poster {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    justify-self: center;
+
+    padding: 1.5rem 1.5rem 1.5rem 0;
+    
+    @media(max-width: 485px) {
+      padding: 12px 12px 12px 0;
+    }
+
+    @media(max-width: 385px) {
+      padding: 12px 0;
+      max-width: 180px;
+      margin: auto;
+    }
+  }
+
+  h2 {
+    margin: 1rem 0 0;
+  }
+}

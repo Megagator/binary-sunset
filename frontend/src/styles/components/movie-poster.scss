@@ -1,0 +1,72 @@
+.poster img {
+  box-shadow: 0 0 10px 0px rgba(black, 0.5);
+}
+
+.review-single .poster {
+  max-width: 180px;
+  float: right;
+  margin: -9rem -2.125rem 1rem 1rem;
+  position: relative;
+  z-index: 10;
+  transition: box-shadow 0.3s ease-in-out,
+  transform 0.3s ease-in-out;
+  
+  @media (max-width: 630px) {
+    margin: -1.25rem 0 1rem 1rem;
+  }
+  
+  @media (max-width: 450px) {
+    width: 50%;
+  }
+  @media (max-width: 320px) {
+    width: 100%;
+    float: none;
+    margin: 0 auto 2rem;
+  }
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(black, 0.33);
+    cursor: pointer;
+    
+    &::before,
+    &::after {
+      opacity: 1;
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background-color: rgba($dark, 0.6);
+  }
+  
+  &::after {
+    content: url(/static/images/bar.svg);
+    font-size: 10rem;
+    color: white;
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  img {
+    min-width: 180px;
+    min-height: 270px;
+    
+    @media (max-width: 450px) {
+      min-width: 100%;
+      min-height: 0;
+    }
+  }
+}

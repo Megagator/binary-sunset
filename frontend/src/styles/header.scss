@@ -1,0 +1,39 @@
+.site-header {
+  background-color: $dark;
+  padding: 1rem 0;
+  margin-bottom: 7rem;
+  
+  nav {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.site-header-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 -2.125rem;
+}
+
+
+.back-arrow {
+  height: 3rem;
+  box-sizing: content-box;
+  cursor: pointer;
+  fill: $light;
+
+  &:hover {
+    fill: $purple;
+  }
+}
+
+.logo {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 2rem;
+}
+
+.back-arrow +.logo {
+  margin-left: 1.5rem;
+}
