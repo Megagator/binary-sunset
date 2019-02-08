@@ -6,12 +6,12 @@ import Layout from "./Layout.js";
 const PageWrapper = Comp => (
   class extends React.Component {
     static async getInitialProps(args) {
-      const headerMenuRes = await fetch(
-        `${Config.apiUrl}/wp-json/menus/v1/menus/header-menu`
-      );
-      const headerMenu = await headerMenuRes.json();
+      // const headerMenuRes = await fetch(
+      //   `${Config.apiUrl}/wp-json/menus/v1/menus/header-menu`
+      // );
+      // const headerMenu = await headerMenuRes.json();
       return {
-        headerMenu,
+        // headerMenu,
         ...(Comp.getInitialProps ? await Comp.getInitialProps(args) : null),
       };
     }
@@ -19,7 +19,6 @@ const PageWrapper = Comp => (
     render() {
       return (
         <Layout>
-          <Menu menu={this.props.headerMenu} />
           <main className="page-wrapper">
             <Comp {...this.props} />
           </main>
