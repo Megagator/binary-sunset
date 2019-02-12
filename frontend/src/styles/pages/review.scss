@@ -1,0 +1,93 @@
+.byline {
+  color: #777;
+  font-size: 1rem;
+}
+address {
+  display: inline;
+  font-weight: bold;
+  font-style: normal;
+
+  &::after {
+    content: ' on ';
+    font-weight: normal;
+  }
+}
+
+.movie-recommendation {
+  text-align: center;
+  padding: 3.5rem 1rem;
+  color: lighten($dark, 20%);
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.6));
+  width: 255px;
+  margin: auto;
+  
+  p {
+    font-family: monospace;
+    text-transform: uppercase;
+    background-color: $light;
+    padding: 1.5rem 0;
+    margin: 0;
+    // text-shadow: 0 0 12px rgba(black, 0.6);
+  }
+  
+  &.true .result {
+    border: 2px solid lighten($green, 5%);
+    // background-color: $green;
+    color: $green;
+  }
+  
+  &.false .result {
+    border: 2px solid lighten($red, 5%);
+    // background-color: $red;
+    color: $red;
+  }
+}
+
+.result-stub {
+  background-color: $light;
+  padding: 1rem 0;
+}
+  
+.rip {
+  background-color: $light;
+  height: 20px;
+  margin: 0 10px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAACCAYAAAB7Xa1eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAAaSURBVBhXY5g7f97/2XPn/AcCBmSMQ+I/AwB2eyNBlrqzUQAAAABJRU5ErkJggg==);
+  background-size: 4px 2px;
+  background-repeat: repeat-x;
+  background-position: center;
+  position: relative;
+  // box-shadow: 0 1px 0 0 #fff, 0 -1px 0 0 #fff;
+  
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: 5px solid transparent;
+    border-top-color: $light;
+    border-right-color: $light;
+    border-radius: 100%;
+    pointer-events:none;
+  }
+  &:before {
+    left: -10px;
+  }
+  &:after {
+    transform: translate(-50%, -50%) rotate(225deg);
+    right: -40px;
+  }
+}
+
+.result {
+  display: inline-block;
+  border-radius: 20rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 2px solid lighten($dark, 5%);
+}
