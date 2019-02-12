@@ -11,6 +11,10 @@
 .site-header-wrapper {
   display: flex;
   align-items: center;
+
+  @media (max-width: 860px) {
+    padding: 0 2.7%;
+  }
 }
 
 
@@ -32,11 +36,21 @@
   font-size: 2rem;
 
   svg {
+    display: block;
     height: 2.2rem;
     fill: $light;
+
+    @media (max-width: 530px ) {
+      height: auto;
+      width: 100%;
+    }
   }
 }
 
 .back-arrow +.logo {
   margin-left: 1.5rem;
+
+  @media (max-width: 530px ) {
+    margin-left: 2.7%;
+  }
 }
