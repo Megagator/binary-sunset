@@ -2,5 +2,5 @@ node_modules
 npm-debug.log
 yarn-error.log
 wordpress/wp-content/languages/
-data
 /wordpress/wp-content/themes/postlight-headless-wp/acf-json
+/wordpress/wp-content/plugins/gutenberg/build/data/index.js
