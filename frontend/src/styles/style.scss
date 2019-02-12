@@ -94,20 +94,6 @@ img {
   display: block;
 }
 
-.byline {
-  color: #777;
-  font-size: 1rem;
-}
-address {
-  display: inline;
-  font-weight: bold;
-  font-style: normal;
-
-  &::after {
-    content: ' on ';
-    font-weight: normal;
-  }
-}
 
 
 
@@ -115,6 +101,7 @@ address {
 @import 'header';
 
 @import 'pages/home';
+@import 'pages/review';
 
 @import 'components/movie-background';
 @import 'components/movie-poster';

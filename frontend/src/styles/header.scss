@@ -4,15 +4,13 @@
   margin-bottom: 7rem;
   
   nav {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
   }
 }
 
 .site-header-wrapper {
   display: flex;
   align-items: center;
-  margin: 0 -2.125rem;
 }
 
 
@@ -32,6 +30,11 @@
   font-weight: bold;
   color: white;
   font-size: 2rem;
+
+  svg {
+    height: 2.2rem;
+    fill: $light;
+  }
 }
 
 .back-arrow +.logo {
