@@ -61,6 +61,13 @@ class Review extends Component {
                     }}
                     />
             </article>
+            <div className={[this.props.post.acf.recommendation.value, "movie-recommendation ticket"].join(' ')}>
+                <p>Recommendation:</p>
+                <div className="rip"></div>
+                <div className="result-stub">
+                    <div className="result">{this.props.post.acf.recommendation.label}</div>
+                </div>
+            </div>
             </Fragment>
         );
     }
