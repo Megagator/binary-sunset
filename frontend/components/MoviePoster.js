@@ -50,6 +50,7 @@ class MovieBackdrop extends Component {
 			return (
 				<div className="poster" onClick={this.props.onClick}>
 					<img
+						sizes = "180px"
 						src = {Api.makeImageUrl(data.poster_path, this.posterSizes.medium)}
 						srcSet = {`
 							${Api.makeImageUrl(data.poster_path, this.posterSizes.small)} 92w,
