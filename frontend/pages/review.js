@@ -51,7 +51,7 @@ class Review extends Component {
                     </div>
                     <MoviePoster apiResult={apiRequest} onClick={this.showStatsCard}/>
                     <div className="byline">
-                        <address className="author">{this.props.post.author}</address>
+                        <span className="author">{this.props.post.author}</span>
                         <PubDate published={this.props.post.date} modified={this.props.modified} />
                     </div>
                 </header>
