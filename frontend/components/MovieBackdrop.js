@@ -45,6 +45,7 @@ class MovieBackdrop extends Component {
 			return (
 				<div className="backdrop">
 					<img
+						sizes = "(min-width: 852px) 852px, (min-width: 852px) 100vw"
 						src = {Api.makeImageUrl(data.backdrop_path, this.backdropSizes.medium)}
 						srcSet = {`
 							${Api.makeImageUrl(data.backdrop_path, this.backdropSizes.small)} 300w,
