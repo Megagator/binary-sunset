@@ -3,6 +3,7 @@ footer.main-block {
   margin-top: 60vh;
   padding-left: 0; 
   padding-right: 0;
+  padding-bottom: env(safe-area-inset-bottom);
 
   @media (max-width: 860px) {
     padding: 0 2.7%;
