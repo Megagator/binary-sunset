@@ -25,8 +25,9 @@
   left: 50%;
   width: 90%;
   max-width: 500px;
-  max-height: 95vh;
+  max-height: 90vh;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   transform: translate(-50%, -50%) scale(0);
   background-color: $light;
   box-shadow: 0 0 10px 0px rgba(black,0.3);
