@@ -6,10 +6,7 @@ address {
   display: inline;
   font-weight: bold;
   font-style: normal;
-
-  + span {
-    font-weight: normal;
-  }
+  margin-right: 0.5rem; 
 }
 
 .movie-recommendation {
