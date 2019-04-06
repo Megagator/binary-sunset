@@ -20,7 +20,7 @@
     "dependencies": {
         "express": "^4.16.4",
         "isomorphic-unfetch": "^3.0.0",
-        "next": "^7.0.2",
+        "next": "7.0.2",
         "react": "^16.6.3"
     },
     "devDependencies": {
@@ -34,7 +34,6 @@
         "postcss-loader": "^3.0.0",
         "raw-loader": "^0.5.1",
         "react-dom": "^16.6.3",
-        "sass-loader": "^7.1.0",
-        "webpack": "^4.27.1"
+        "sass-loader": "^7.1.0"
     }
 }
