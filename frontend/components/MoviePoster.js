@@ -20,7 +20,7 @@ class MovieBackdrop extends Component {
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		let apiCall;
 		if (this.props.apiResult != undefined) {
 			apiCall = this.props.apiResult

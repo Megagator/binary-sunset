@@ -13,7 +13,7 @@ class MovieStats extends Component {
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.apiResult
 			.then( (content) => {
 				this.setState({
