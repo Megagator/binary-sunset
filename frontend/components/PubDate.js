@@ -23,10 +23,12 @@ class PubDate extends Component {
 	render() {
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const pubDate = new Date(this.props.published);
+        console.log('pubDate:', pubDate)
         const pubDateString = monthNames[pubDate.getMonth()] + " " + this.ordinalWithSuffix(pubDate.getDate()) + ", " + pubDate.getFullYear();
         
         const modDate = new Date(this.props.modified);
-        const modDateString = "Last edited: " + monthNames[modDate.getMonth()] + " " + this.ordinalWithSuffix(modDate.getDate()) + ", " + modDate.getFullYear();
+        console.log('modDate:', modDate)
+        const modDateString = "Last edited: " + modDate.toLocaleDateString('en-US');
         
         return (
             <time pubdate="true" dateTime={pubDate.toISOString()} title={modDateString}>{pubDateString}</time>
