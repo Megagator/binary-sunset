@@ -55,7 +55,7 @@ class Review extends Component {
                         <PubDate published={this.props.post.date} modified={this.props.modified} />
                     </div>
                 </header>
-                <section
+                <section className='review-body'
                     dangerouslySetInnerHTML={{
                         __html: this.props.post.content.rendered
                     }}

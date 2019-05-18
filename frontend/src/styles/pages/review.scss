@@ -87,3 +87,7 @@
   text-transform: uppercase;
   border: 2px solid lighten($dark, 5%);
 }
+
+.review-body {
+  min-height: 12rem;
+}
