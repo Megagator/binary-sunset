@@ -16,7 +16,6 @@ body {
   font-size: 100%;
   font-family: $font;
   color: $dark;
-  background-color: white;
   background-image: url(../../static/images/binary_sunset.jpg);
   background-attachment: fixed;
   background-color:#333;
@@ -25,7 +24,7 @@ body {
   background-position:94% center;
   min-height: 100vh;
 
-  @media screen and (max-width: 800) {
+  @media screen and (max-width: 800px) {
     background-attachment: unset;
     background-size: contain;
     background-position: 0 2rem;
