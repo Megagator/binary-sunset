@@ -22,7 +22,7 @@ class PubDate extends Component {
 
 	render() {
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const pubDate = new Date(this.props.published);
+        const pubDate = new Date.UTC(this.props.published);
         const pubDateString = monthNames[pubDate.getMonth()] + " " + this.ordinalWithSuffix(pubDate.getDate()) + ", " + pubDate.getFullYear();
         
         const modDate = new Date(this.props.modified);
